@@ -1,16 +1,10 @@
---- 
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-deployment
 spec:
-  replicas: 3
-  strategy:
-   type: RollingUpdate
-   rollingUpdate:
-    maxSurge: 1
-    maxUnavailable: 0        
+  replicas: 2
   selector:
     matchLabels:
       app: my-app
@@ -20,7 +14,14 @@ spec:
         app: my-app
     spec:
       containers:
-      - image: nginx:1.13
+      - image: nginx:1.12
         name: nginx
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
