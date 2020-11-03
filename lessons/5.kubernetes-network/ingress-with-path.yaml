@@ -12,3 +12,4 @@ spec:
           serviceName: my-service
           servicePort: 80
         path: /api
+
