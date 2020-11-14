@@ -13,6 +13,6 @@ spec:
         image: busybox
         args:
         - /bin/sh
-        - -c
+        - -c 
         - while true; do sleep 1; date; echo Hello from the Kubernetes cluster; done
       restartPolicy: Never
